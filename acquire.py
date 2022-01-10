@@ -61,7 +61,7 @@ def merge_dfs(sales, stores, items):
     '''
     # merge all three dfs into one
     df = sales.merge(stores, left_on='store', right_on='store_id').merge(items, left_on='item', right_on='item_id')
-    return df
+    return df.drop(columns=['store', 'item'])
 
 def get_germany():
     '''
