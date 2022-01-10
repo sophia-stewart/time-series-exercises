@@ -63,3 +63,18 @@ def merge_dfs(sales, stores, items):
     df = sales.merge(stores, left_on='store', right_on='store_id').merge(items, left_on='item', right_on='item_id')
     return df
 
+def get_germany():
+    '''
+    This function takes in no arguments and returns a dataframe of the data contained in
+    https://raw.githubusercontent.com/jenfly/opsd/master/opsd_germany_daily.csv. It then 
+    writes this dataframe to a local file: germany.csv. If this file already exists locally
+    the function pulls in data from the local csv.
+    '''
+    import os
+    # check for local csv
+    if os.path.isfile('germany.csv'):
+        germany = pd.read_csv('germany.csv', index_col=0)
+    else: 
+        germany = pd.read_csv('https://raw.githubusercontent.com/jenfly/opsd/master/opsd_germany_daily.csv')
+        germany.to_csv('germany.csv')
+    return germany
