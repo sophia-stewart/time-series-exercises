@@ -42,6 +42,9 @@ def merge_dfs(sales, stores, items):
     df = sales.merge(stores, left_on='store', right_on='store_id').merge(items, left_on='item', right_on='item_id')
     return df.drop(columns=['store', 'item'])
 
+def get_store_data():
+    return merge_dfs(get_data('sales'), get_data('stores'), get_data('items'))
+
 def get_germany():
     '''
     This function takes in no arguments and returns a dataframe of the data contained in
