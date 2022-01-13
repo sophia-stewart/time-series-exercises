@@ -1,5 +1,7 @@
 # FUNCTIONS FOR DATA PREPARATION
 
+import pandas as pd
+
 def prepare_sales(sales):
     '''
     This function takes in the sales dataframe and returns a prepared version
